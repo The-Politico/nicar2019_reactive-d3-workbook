@@ -2,10 +2,9 @@
   "name": "nicar2019_reactive-d3-workbook",
   "version": "0.0.1",
   "description": "Workbook for the Reactive D3 session at NICAR 2019.",
-  "main": "index.js",
+  "main": "src/js/index.js",
   "scripts": {
-    "start": "parcel src/index.html --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel src/index.html --open"
   },
   "repository": {
     "type": "git",
