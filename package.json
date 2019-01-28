@@ -1,0 +1,32 @@
+{
+  "name": "nicar2019_reactive-d3-workbook",
+  "version": "0.0.1",
+  "description": "Workbook for the Reactive D3 session at NICAR 2019.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Politico/nicar2019_reactive-d3-workbook.git"
+  },
+  "author": "Jon McClure",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/The-Politico/nicar2019_reactive-d3-workbook/issues"
+  },
+  "homepage": "https://github.com/The-Politico/nicar2019_reactive-d3-workbook#readme",
+  "dependencies": {
+    "bulma": "^0.7.2",
+    "d3": "^5.7.0",
+    "lodash": "^4.17.11",
+    "politico-style": "^3.0.5",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "sass": "^1.16.1"
+  }
+}

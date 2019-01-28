@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Major+Mono+Display');
+@import '~politico-style/scss/base/theme/colors/_base.scss';
+
+@import '~bulma/bulma.sass';
+
+$family-title: 'Major Mono Display', monospace;
+$family-body: 'Open Sans', sans-serif;
+
+body {
+  font-family: $family-body;
+}
+
+.is-title {
+  font-family: $family-title;
+}
+
+.red {
+  color: $politico-red;
+}
+
+.navbar {
+  padding: 10px 15px;
+  font-size: 22px;
+  a {
+    color: #333;
+  }
+}
+
+.placeholder h3 {
+  text-align: center;
+}
