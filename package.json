@@ -4,7 +4,7 @@
   "description": "Workbook for the Reactive D3 session at NICAR 2019.",
   "main": "src/js/index.js",
   "scripts": {
-    "start": "parcel src/index.html --open"
+    "start": "parcel src/index.html src/exercise1/index.html src/exercise2/index.html src/exercise3/index.html --open"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,9 @@
     "url": "https://github.com/The-Politico/nicar2019_reactive-d3-workbook/issues"
   },
   "homepage": "https://github.com/The-Politico/nicar2019_reactive-d3-workbook#readme",
+  "alias": {
+    "Common": "./src/common"
+  },
   "dependencies": {
     "bulma": "^0.7.2",
     "d3": "^5.7.0",
@@ -25,6 +28,12 @@
     "react-dom": "^16.7.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@politico/eslint-config-interactives": "^0.0.5",
+    "eslint": "^5.15.0",
     "parcel-bundler": "^1.11.0",
     "sass": "^1.16.1"
   }
