@@ -1,87 +1,80 @@
-import d3 from './d3';
+import d3 from 'Common/js/d3';
 import merge from 'lodash/merge';
 
-export default () => ({
-  /**
-   * Develop your chart in this render function.
-   *
-   * For more details about this pattern, see Mike Bostock's proposal for
-   * reusable charts: https://bost.ocks.org/mike/chart/
-   */
-  render() {
-    /**
-     * Set default chart properties in this object. Users can overwrite them
-     * by passing a props object through the module's create or update methods.
-     */
-    let props = {
-      margins: {
-        top: 10,
-        right: 5,
-        bottom: 10,
-        left: 5,
-      },
-    };
+class ChartComponent {
+  selection(selector) {
+    if (!selector) return this._selection;
 
-    function chart(selection) {
-      selection.each((data, i, elements) => {
-        /**
-         * YOUR D3 CODE HERE 📈 📊 🌐
-         */
-        const node = elements[i]; // the selected element
-        const { width, height } = node.getBoundingClientRect();
-        const { margins } = props;
+    this._selection = d3.select(selector);
+    return this;
+  }
 
-        const g = d3
-          .select(node)
-          .appendSelect('svg') // see docs in ./d3.js
-          .attr('width', width)
-          .attr('height', height)
-          .appendSelect('g')
-          .attr('transform', `translate(${margins.left}, ${margins.top})`);
-      });
-    }
+  defaultProps = {
+    stroke: '#ccc',
+    strokeWidth: '2px',
+    fill: 'steelblue',
+    count: 0,
+  }
 
-    /**
-     * Getter-setters merge any user-provided properties with the defaults.
-     */
-    chart.props = obj => {
-      if (!obj) return props;
-      props = merge(props, obj);
-      return chart;
-    };
+  props(obj) {
+    if (!obj) return this._props || this.defaultProps;
 
-    return chart;
-  },
+    this._props = merge(this._props || this.defaultProps, obj);
+    return this;
+  }
 
-  /**
-   * Draws the chart by calling the idempotent render function with
-   * a selected element.
-   */
+  defaultData = [60, 40, 20]
+
+  data(arr) {
+    if (!arr) return this._data || this.defaultData;
+
+    this._data = arr;
+    return this;
+  }
+
   draw() {
-    const chart = this.render().props(this._props);
+    const data = this.data();
+    const props = this.props();
 
-    d3.select(this._selection)
-      .datum(this._data)
-      .call(chart);
-  },
+    const node = this.selection().node();
+    const { width, height } = node.getBoundingClientRect();
+    const t = d3.transition()
+      .duration(750);
 
-  /**
-   * Creates the chart initially.
-   */
-  create(selection, data, props = {}) {
-    this._selection = selection;
-    this._data = data;
-    this._props = props;
+    const g = this.selection()
+      .appendSelect('svg')
+      .attr('width', width)
+      .attr('height', height)
+      .appendSelect('g')
+      .attr('transform', `translate(${width / 2 - 62}, 60)`);
 
-    this.draw();
-  },
+    const circles = g.selectAll('circle')
+      .data(data, (d, i) => i);
 
-  /**
-   * Updates the chart with new data and/or props.
-   */
-  update(data, props = {}) {
-    this._data = data || this._data;
-    this._props = merge({}, this._props, props);
-    this.draw();
-  },
-});
+    circles
+      .style('fill', props.fill)
+      .style('stroke', props.stroke);
+
+    circles.enter().append('circle')
+      .style('fill', props.fill)
+      .style('stroke', props.stroke)
+      .style('stroke-width', props.strokeWidth)
+      .attr('cy', '0')
+      .attr('cx', (d, i) =>
+        data.slice(0, i).reduce((a, b) => a + b, 0) + (d / 2)
+      )
+      .merge(circles)
+      .transition(t)
+      .attr('cx', (d, i) =>
+        data.slice(0, i).reduce((a, b) => a + b, 0) + (d / 2)
+      )
+      .attr('r', d => d / 2);
+
+    circles.exit()
+      .transition(t)
+      .attr('r', 0)
+      .remove();
+  }
+}
+
+export default ChartComponent;
