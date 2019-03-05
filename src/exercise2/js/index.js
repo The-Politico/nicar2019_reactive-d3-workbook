@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Page from '../../common/js/Page';
 
-import '../../common/scss/main.scss';
+import 'Common/scss/main.scss';
+import '../scss/styles.scss';
 
 import Container from './Container';
 

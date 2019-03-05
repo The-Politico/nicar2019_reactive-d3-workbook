@@ -25,7 +25,8 @@
     "lodash": "^4.17.11",
     "politico-style": "^3.0.5",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "simple-statistics": "^7.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

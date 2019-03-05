@@ -1,5 +1,9 @@
 import React from 'react';
 
+// import Chart from '../Chart';
+
+// import { fakeFetchVote, fakeFetchCensus } from '../utils/fakeFetch';
+
 class ChartContainer extends React.Component {
   render() {
     return (
