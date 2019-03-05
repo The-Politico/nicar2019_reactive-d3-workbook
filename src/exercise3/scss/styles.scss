@@ -1,0 +1,19 @@
+$ModuleNicar2019Chart-container: '#chart';
+@import "~module-nicar2019-chart/src/scss/_chart.scss";
+
+$ModuleNicar2019Map-container: '#map';
+@import "~module-nicar2019-map/src/scss/_chart.scss";
+
+.hero-body{
+  padding: 20px 0 !important;
+}
+
+.chart-container{
+  height: 400px;
+  padding: 0 40px;
+  & > div{
+    height: 400px;
+    width: 50%;
+    display: inline-block;
+  }
+}

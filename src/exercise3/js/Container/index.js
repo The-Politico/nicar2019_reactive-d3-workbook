@@ -1,10 +1,22 @@
 import React from 'react';
 
+// import Chart from 'module-nicar2019-chart';
+// import Map from 'module-nicar2019-map';
+
 class ChartContainer extends React.Component {
+  componentDidMount() {
+
+  }
+
+  componentDidUpdate() {
+
+  }
+
   render() {
     return (
-      <div className='placeholder'>
-        <h3>[ your chart here ]</h3>
+      <div className='chart-container'>
+        <div id='map' />
+        <div id='chart' />
       </div>
     );
   }

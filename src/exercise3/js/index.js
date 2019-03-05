@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Page from '../../common/js/Page';
 
 import '../../common/scss/main.scss';
+import '../scss/styles.scss';
 
 import Container from './Container';
 

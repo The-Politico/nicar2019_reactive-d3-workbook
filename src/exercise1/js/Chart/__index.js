@@ -13,7 +13,6 @@ class ChartComponent {
     stroke: '#ccc',
     strokeWidth: '2px',
     fill: 'steelblue',
-    count: 0,
   }
 
   props(obj) {

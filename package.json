@@ -23,6 +23,8 @@
     "bulma": "^0.7.2",
     "d3": "^5.7.0",
     "lodash": "^4.17.11",
+    "module-nicar2019-chart": "https://github.com/The-Politico/module_nicar2019-linechart.git",
+    "module-nicar2019-map": "https://github.com/The-Politico/module_nicar2019-map.git",
     "politico-style": "^3.0.5",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

@@ -16,10 +16,10 @@ class ChartComponent {
     return this;
   }
 
-  censusData(arr) {
-    if (!arr) return this._censusData;
+  censusData(obj) {
+    if (!obj) return this._censusData;
 
-    this._censusData = arr;
+    this._censusData = obj;
     return this;
   }
 
